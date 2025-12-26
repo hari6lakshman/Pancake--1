@@ -37,7 +37,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-foreground h-5 w-5"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M12 2a10 10 0 0 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/></svg>
               </Link>
             </Button>
-            <h1 className="text-xl font-semibold tracking-tighter">Pan cake</h1>
+            <h1 className="text-xl font-semibold tracking-tighter">Pan cake 🎂</h1>
           </div>
         </SidebarHeader>
         <SidebarContent>
@@ -76,7 +76,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <SidebarInset>
         <header className="flex h-14 items-center justify-between p-4 border-b md:justify-end bg-card md:bg-transparent">
           <SidebarTrigger className="md:hidden" />
-          <h1 className="font-headline text-lg font-semibold md:hidden">Pan cake</h1>
+          <h1 className="font-headline text-lg font-semibold md:hidden">Pan cake 🎂</h1>
           <div/>
         </header>
         <main className="flex-1 p-4 md:p-6 lg:p-8 overflow-auto">

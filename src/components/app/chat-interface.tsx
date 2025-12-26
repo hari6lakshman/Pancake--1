@@ -21,7 +21,7 @@ function AiIcon() {
 
 export function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', text: "Hello! I'm Pan, your AI companion. How can I help you today?", sender: 'ai' }
+    { id: '1', text: "Hello! I'm Pan cake 🎂, your AI companion. How can I help you today?", sender: 'ai' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
