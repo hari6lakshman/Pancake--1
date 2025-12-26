@@ -1,0 +1,57 @@
+'use server';
+
+/**
+ * @fileOverview A flow for providing personalized encouragement messages to the user.
+ *
+ * - provideEncouragement - A function that sends personalized encouragement messages to the user.
+ * - ProvideEncouragementInput - The input type for the provideEncouragement function.
+ * - ProvideEncouragementOutput - The return type for the provideEncouragement function.
+ */
+
+import {ai} from '@/ai/genkit';
+import {z} from 'genkit';
+
+const ProvideEncouragementInputSchema = z.object({
+  mood: z
+    .string()
+    .describe("The user's current mood, e.g., happy, sad, anxious, etc."),
+  needs: z
+    .string()
+    .describe("The user's current needs or areas they're struggling with."),
+});
+export type ProvideEncouragementInput = z.infer<typeof ProvideEncouragementInputSchema>;
+
+const ProvideEncouragementOutputSchema = z.object({
+  encouragementMessage: z
+    .string()
+    .describe('A personalized encouragement message for the user.'),
+});
+export type ProvideEncouragementOutput = z.infer<typeof ProvideEncouragementOutputSchema>;
+
+export async function provideEncouragement(input: ProvideEncouragementInput): Promise<ProvideEncouragementOutput> {
+  return provideEncouragementFlow(input);
+}
+
+const prompt = ai.definePrompt({
+  name: 'provideEncouragementPrompt',
+  input: {schema: ProvideEncouragementInputSchema},
+  output: {schema: ProvideEncouragementOutputSchema},
+  prompt: `You are a supportive and empathetic AI assistant designed to provide personalized encouragement to users based on their current mood and needs.
+
+  Mood: {{{mood}}}
+  Needs: {{{needs}}}
+
+  Please generate a message that offers comfort, motivation, and a positive perspective. Keep the message concise and uplifting.`,
+});
+
+const provideEncouragementFlow = ai.defineFlow(
+  {
+    name: 'provideEncouragementFlow',
+    inputSchema: ProvideEncouragementInputSchema,
+    outputSchema: ProvideEncouragementOutputSchema,
+  },
+  async input => {
+    const {output} = await prompt(input);
+    return output!;
+  }
+);
