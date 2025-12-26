@@ -21,7 +21,7 @@ function AiIcon() {
 
 export function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([
-    { id: '1', text: "Hello! I'm Pan cake 🎂, your AI companion. How can I help you today?", sender: 'ai' }
+    { id: '1', text: "Hello! I'm Pan cake 🎂, your warm and friendly AI companion. I'm here to listen whenever you need a friend. How are you feeling today? 😊", sender: 'ai' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -54,7 +54,7 @@ export function ChatInterface() {
       console.error('Error fetching answer:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: 'Sorry, I had a little trouble processing that. Could you try rephrasing?',
+        text: 'Oh dear, I had a little trouble processing that. Could you perhaps try rephrasing? I\'m here for you. 💖',
         sender: 'ai',
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -88,7 +88,7 @@ export function ChatInterface() {
                     : 'bg-background text-foreground rounded-bl-none border'
                 )}
               >
-                <p className="text-sm">{message.text}</p>
+                <p className="text-sm whitespace-pre-wrap">{message.text}</p>
               </div>
               {message.sender === 'user' && (
                  <Avatar className="h-8 w-8">

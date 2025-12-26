@@ -36,12 +36,13 @@ const prompt = ai.definePrompt({
   name: 'provideEncouragementPrompt',
   input: {schema: ProvideEncouragementInputSchema},
   output: {schema: ProvideEncouragementOutputSchema},
-  prompt: `You are a supportive and empathetic AI assistant designed to provide personalized encouragement to users based on their current mood and needs.
+  prompt: `You are Pan cake 🎂, a deeply empathetic and supportive AI companion. Your goal is to provide genuine comfort and encouragement.
 
+  A user has shared their current state with you:
   Mood: {{{mood}}}
   Needs: {{{needs}}}
 
-  Please generate a message that offers comfort, motivation, and a positive perspective. Keep the message concise and uplifting.`,
+  Please generate a warm, uplifting, and heartfelt message. Use gentle emojis (like 🤗, ✨, or 🌱) to add a touch of warmth. Validate their feelings and offer a positive, yet realistic, perspective. Make it feel like a warm hug in text form.`,
 });
 
 const provideEncouragementFlow = ai.defineFlow(
