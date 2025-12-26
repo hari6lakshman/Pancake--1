@@ -14,13 +14,12 @@ import {
 } from '@/components/ui/sidebar';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, MessageCircle, Sparkles, BookHeart, User } from 'lucide-react';
+import { LayoutDashboard, Sparkles, BookHeart, User } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 
 const menuItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/chat', label: 'Chat', icon: MessageCircle },
   { href: '/affirmations', label: 'Affirmations', icon: Sparkles },
   { href: '/coping-strategies', label: 'Coping Strategies', icon: BookHeart },
 ];
